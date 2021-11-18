@@ -1,16 +1,26 @@
-import { Category } from "../model/category";
+import { Category } from "../../model/category";
 import {
     ICategoriesRepository,
     ICreateCategoryDTO,
-} from "./ICategoriesRepository";
+} from "../ICategoriesRepository";
 
 // DTO => Data transfer object
+// Singleton
 
 class CategoriesRepository implements ICategoriesRepository {
     private categories: Category[];
 
-    constructor() {
+    // eslint-disable-next-line no-use-before-define
+    public static INSTANCE: CategoriesRepository;
+
+    private constructor() {
         this.categories = [];
+    }
+    public static getInstace(): CategoriesRepository {
+        if (!CategoriesRepository.INSTANCE) {
+            CategoriesRepository.INSTANCE = new CategoriesRepository();
+        }
+        return CategoriesRepository.INSTANCE;
     }
 
     create({ description, name }: ICreateCategoryDTO): void {

@@ -1,3 +1,7 @@
 {
-    "editor.fontFamily": "JetBrains Mono"
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.codeLensFontFamily": "JetBrains Mono",
+    "editor.codeLensFontSize": 13,
+    "editor.formatOnType": true,
+    "editor.inlayHints.fontFamily": "JetBrains Mono"
 }
